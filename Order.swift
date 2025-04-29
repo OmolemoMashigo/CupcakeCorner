@@ -35,7 +35,25 @@ class Order{
         if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty{
             return false
         }
-        
         return true
+    }
+    
+    var cost: Decimal{ //more accurate than Double
+        //base cost of $2
+        var cost = Decimal(quantity) * 2
+        
+        cost += Decimal(type)/2
+        
+        //1$ per cake for extra frosting
+        if extraFrosting{
+            cost += Decimal(quantity)
+        }
+        
+        //$0.5 per cake for sprinkles
+        if addSprinkles{
+            cost += Decimal(quantity)/2
+        }
+        
+        return cost
     }
 }

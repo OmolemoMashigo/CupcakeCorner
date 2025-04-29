@@ -30,7 +30,7 @@ struct ContentView: View {
                     
                     if order.specialRequest{
                         Toggle("add extra frosting", isOn: $order.extraFrosting.animation())
-                        Toggle("add extra frosting", isOn: $order.addSprinkles.animation())
+                        Toggle("add extra sprinkles", isOn: $order.addSprinkles.animation())
                     }
                 }
                 
