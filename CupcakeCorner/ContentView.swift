@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var order = Order()
+    @Bindable private var order = Order()
     
     var body: some View {
         NavigationStack{
