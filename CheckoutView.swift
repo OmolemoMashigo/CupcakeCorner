@@ -14,6 +14,10 @@ struct CheckoutView: View {
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
     
+    @State private var showingErrorAlert = false
+    @State private var errorMessage = ""
+
+    
     var body: some View {
         ScrollView{
             VStack{
