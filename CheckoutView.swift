@@ -56,19 +56,19 @@ struct CheckoutView: View {
             print("failed to encode order")
             return
         }
-        print("check 1")
+        
         let url = URL(string: "https://reqres.in/api/cupcakes")!
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        print("check 2")
+        
         do{
             let (data, _) = try await URLSession.shared.upload(for: request, from: encoded)
-            print("check 3")
+            
             print(encoded.startIndex)
             print(data)
             let decodedOrder = try JSONDecoder().decode(Order.self, from: data)
-            print("check 4")
+            
             confirmationMessage = "your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way"
             showingConfirmation = true
         }
